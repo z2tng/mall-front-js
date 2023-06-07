@@ -16,8 +16,9 @@ const getHtmlPluginConfig = function (name) {
 
 module.exports = {
     entry: {
-        'index': './src/page/index/index.js',
-        'common': './src/page/common/index.js',
+        'index'         : './src/page/index/index.js',
+        'user-login'    : './src/page/user-login/index.js',
+        'common'        : './src/page/common/index.js',
     },
     output: {
         filename: 'js/[name].js',
@@ -50,6 +51,7 @@ module.exports = {
             filename: 'css/[name].css'
         }),
         new HtmlWebpackPlugin(getHtmlPluginConfig('index')),
+        new HtmlWebpackPlugin(getHtmlPluginConfig('user-login')),
     ],
     resolve: {
         alias: {
