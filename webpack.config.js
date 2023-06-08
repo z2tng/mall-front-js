@@ -18,6 +18,7 @@ module.exports = {
     entry: {
         'index'         : './src/page/index/index.js',
         'user-login'    : './src/page/user-login/index.js',
+        'product-list'  : './src/page/product-list/index.js',
         'common'        : './src/page/common/index.js',
     },
     output: {
@@ -32,11 +33,11 @@ module.exports = {
                 use: [MiniCSSExtractPlugin.loader, 'css-loader'],
             },
             {
-                test: /\.(woff|woff2|eot|tff|otf|gif|jpg|avif|png|webp)$/,
+                test: /\.(woff|woff2|eot|ttf|otf|gif|jpg|avif|png|webp)$/,
                 type: 'asset/resource',
             },
             {
-                test: /\.(htm|template)$/,
+                test: /\.(htm|string)$/,
                 use: {
                     loader: "html-loader",
                     options: {
@@ -52,6 +53,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin(getHtmlPluginConfig('index')),
         new HtmlWebpackPlugin(getHtmlPluginConfig('user-login')),
+        new HtmlWebpackPlugin(getHtmlPluginConfig('product-list')),
     ],
     resolve: {
         alias: {

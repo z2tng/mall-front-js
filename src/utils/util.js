@@ -1,3 +1,4 @@
+const Hogan = require("hogan.js");
 
 const config = {
     serverHost: "http://localhost:8090"
@@ -52,9 +53,11 @@ const _common_util = {
         const result = paramString.match(regExp)
         return result ? decodeURIComponent(result[2]) : null;
     },
+    // 跳转到登录界面
     toLogin: function () {
         window.location.href = './user-login.html?redirect=' + encodeURI(window.location.href);
     },
+    // 校验字符串
     validate: function (value, type) {
         // 字符串校验，支持字符串非空校验(require)、手机号码校验(phone)、邮箱格式校验(email)
         value = $.trim(value);
@@ -67,7 +70,21 @@ const _common_util = {
         if (type === 'email') {
             return /^\w+([-+.]\w+])*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(value);
         }
-    }
+    },
+    // 成功提示
+    renderHTML: function (templateHTML, data) {
+        const template = Hogan.compile(templateHTML);
+        const resultHTML = template.render(data);
+        return resultHTML;
+    },
+    // 错误提示
+    errorTips: function (msg) {
+        alert(msg || "出错啦~~~")
+    },
+    // 成功提示
+    successTips: function (msg) {
+        alert(msg || "操作成功!!!")
+    },
 }
 
 module.exports = _common_util;

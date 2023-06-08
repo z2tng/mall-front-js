@@ -23,6 +23,7 @@ const _nav_top = {
                 .find('.username').text(res.username)
         }, function (errorMsg) {
             console.log(errorMsg);
+            $('.user.login').hide()
         });
     },
     loadCartCount: function () {

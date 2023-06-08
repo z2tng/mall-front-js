@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%= require("./common/common-header.htm") %>
+    <title>Document</title>
+</head>
+<body>
+<%= require("./common/nav-top.htm") %>
+<%= require("./common/nav-search.htm") %>
+
+    <div class="crumb">
+        <div class="w">
+            <div class="crumb-content">
+                <a href="./index.html" class="link">Store</a>
+                <span>></span>
+                <span class="link-text">商品列表</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-wrap w">
+        <ul class="sort-content">
+            <li class="sort-item active" data-type="default">默认排序</li>
+            <li class="sort-item" data-type="price">
+                <span>价格</span>
+                <i class="fa fa-sort-asc"></i>
+                <i class="fa fa-sort-desc"></i>
+            </li>
+        </ul>
+        <ul class="product-list-content">
+        </ul>
+        <div class="pagination">
+        </div>
+    </div>
+
+<%= require("./common/common-footer.htm") %>
+</body>
+</html>
