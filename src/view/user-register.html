@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%= require("./common/common-header.htm") %>
+    <title>Document</title>
+</head>
+<body>
+<%= require("./common/nav-top-simple.htm") %>
+
+<div class="page-wrap w">
+    <div class="user-content">
+        <div class="user-title">用户注册</div>
+        <div class="user-form">
+            <div class="user-form-error">
+                <i class="fa fa-exclamation-circle error-icon"></i>
+                <p class="error-message">error</p>
+            </div>
+            <div class="user-form-item">
+                <label for="username" class="user-form-label">
+                    <i class="fa fa-user"></i>
+                </label>
+                <input type="text" class="user-form-input" id="username" placeholder="请输入用户名" autocomplete="off">
+            </div>
+            <div class="user-form-item">
+                <label for="password" class="user-form-label">
+                    <i class="fa fa-lock"></i>
+                </label>
+                <input type="password" class="user-form-input" id="password" placeholder="请输入密码" autocomplete="off">
+            </div>
+            <div class="user-form-item">
+                <label for="repeat-password" class="user-form-label">
+                    <i class="fa fa-lock"></i>
+                </label>
+                <input type="password" class="user-form-input" id="repeat-password" placeholder="请再输入密码" autocomplete="off">
+            </div>
+            <div class="user-form-item">
+                <label for="email" class="user-form-label">
+                    <i class="fa fa-envelope"></i>
+                </label>
+                <input type="text" class="user-form-input" id="email" placeholder="请输入邮箱" autocomplete="off">
+            </div>
+            <div class="user-form-item">
+                <label for="phone" class="user-form-label">
+                    <i class="fa fa-phone"></i>
+                </label>
+                <input type="text" class="user-form-input" id="phone" placeholder="请输入电话" autocomplete="off">
+            </div>
+            <div class="user-form-item">
+                <label for="question" class="user-form-label">
+                    <i class="fa fa-question"></i>
+                </label>
+                <input type="text" class="user-form-input" id="question" placeholder="请输入问题" autocomplete="off">
+            </div>
+            <div class="user-form-item">
+                <label for="answer" class="user-form-label">
+                    <i class="fa fa-info"></i>
+                </label>
+                <input type="text" class="user-form-input" id="answer" placeholder="请输入答案" autocomplete="off">
+            </div>
+
+            <a class="btn btn-register" id="submit">注册</a>
+        </div>
+    </div>
+</div>
+
+<%= require("./common/common-footer.htm") %>
+</body>
+</html>

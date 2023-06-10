@@ -53,6 +53,10 @@ const _common_util = {
         const result = paramString.match(regExp)
         return result ? decodeURIComponent(result[2]) : null;
     },
+    // 跳转到首页
+    toMain: function () {
+        window.location.href = './index.html';
+    },
     // 跳转到登录界面
     toLogin: function () {
         window.location.href = './user-login.html?redirect=' + encodeURI(window.location.href);
@@ -79,11 +83,11 @@ const _common_util = {
     },
     // 错误提示
     errorTips: function (msg) {
-        alert(msg || "出错啦~~~")
+        alert(msg || "出错啦~~~");
     },
     // 成功提示
     successTips: function (msg) {
-        alert(msg || "操作成功!!!")
+        alert(msg || "操作成功!!!");
     },
 }
 

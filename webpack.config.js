@@ -16,10 +16,12 @@ const getHtmlPluginConfig = function (name) {
 
 module.exports = {
     entry: {
-        'index'         : './src/page/index/index.js',
-        'user-login'    : './src/page/user-login/index.js',
-        'product-list'  : './src/page/product-list/index.js',
-        'common'        : './src/page/common/index.js',
+        'index'                         : './src/page/index/index.js',
+        'user-login'                    : './src/page/user-login/index.js',
+        'user-register'                 : './src/page/user-register/index.js',
+        'user-forget-password-reset'    : './src/page/user-forget-password-reset/index.js',
+        'product-list'                  : './src/page/product-list/index.js',
+        'common'                        : './src/page/common/index.js',
     },
     output: {
         filename: 'js/[name].js',
@@ -53,6 +55,8 @@ module.exports = {
         }),
         new HtmlWebpackPlugin(getHtmlPluginConfig('index')),
         new HtmlWebpackPlugin(getHtmlPluginConfig('user-login')),
+        new HtmlWebpackPlugin(getHtmlPluginConfig('user-register')),
+        new HtmlWebpackPlugin(getHtmlPluginConfig('user-forget-password-reset')),
         new HtmlWebpackPlugin(getHtmlPluginConfig('product-list')),
     ],
     resolve: {

@@ -8,7 +8,7 @@ const _user_service = {
             method  : 'POST',
             success : resolve,
             error   : reject,
-        })
+        });
     },
     // 登录
     login: function (userInfo, resolve, reject) {
@@ -18,7 +18,52 @@ const _user_service = {
             data    : userInfo,
             success : resolve,
             error   : reject,
-        })
+        });
+    },
+    // 注册
+    register: function (userInfo, resolve, reject) {
+        _common_util.request({
+            url     : _common_util.getServerURL('/user/register'),
+            method  : 'POST',
+            data    : userInfo,
+            success : resolve,
+            error   : reject,
+        });
+    },
+    // 登出
+    logout: function (resolve, reject) {
+        _common_util.request({
+            url     : _common_util.getServerURL('/user/logout'),
+            method  : 'POST',
+            success : resolve,
+            error   : reject,
+        });
+    },
+    getForgetQuestion: function (username, resolve, reject) {
+        _common_util.request({
+            url     : _common_util.getServerURL('/user/get_forget_question?username=' + username),
+            method  : 'POST',
+            success : resolve,
+            error   : reject,
+        });
+    },
+    checkForgetQuestion: function (userInfo, resolve, reject) {
+        _common_util.request({
+            url     : _common_util.getServerURL('/user/check_forget_answer'),
+            method  : 'POST',
+            data    : userInfo,
+            success : resolve,
+            error   : reject,
+        });
+    },
+    resetForgetPassword: function (userInfo, resolve, reject) {
+        _common_util.request({
+            url     : _common_util.getServerURL('/user/reset_forget_password'),
+            method  : 'POST',
+            data    : userInfo,
+            success : resolve,
+            error   : reject,
+        });
     },
 };
 
