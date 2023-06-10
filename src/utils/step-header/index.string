@@ -1,0 +1,12 @@
+{{#stepArray}}
+<div class="step-header-item">
+    <div class="step-header-item-node {{state}}">{{id}}</div>
+    <div class="step-header-item-body">
+        <span class="step-header-item-title">{{title}}</span>
+        <span class="step-header-item-tip">{{tip}}</span>
+    </div>
+    {{^final}}
+    <div class="step-header-item-tail {{state}}"></div>
+    {{/final}}
+</div>
+{{/stepArray}}
