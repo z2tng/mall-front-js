@@ -25,7 +25,7 @@ const Pagination = function () {
             return;
         }
         typeof _this.option.onClickItem === 'function' ? _this.option.onClickItem($this.data("value")) : null;
-    })
+    });
 };
 
 Pagination.prototype.render = function (userOption) {

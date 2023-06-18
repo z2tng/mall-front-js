@@ -66,16 +66,28 @@ const _user_register = {
             result.msg = '密码不能为空';
             return result;
         }
-        if (!_common_util.validate(formData.repeatPassword, 'require') || formData.repeatPassword !== formData.password) {
-            result.msg = '重复密码不能为空或不一致';
+        if (!_common_util.validate(formData.repeatPassword, 'require')) {
+            result.msg = '重复密码不能为空';
             return result;
         }
-        if (!_common_util.validate(formData.email, 'require') || !_common_util.validate(formData.email, 'email')) {
-            result.msg = '邮箱不能为空或格式不正确';
+        if (formData.repeatPassword !== formData.password) {
+            result.msg = '重复密码不一致';
             return result;
         }
-        if (!_common_util.validate(formData.phone, 'require') || !_common_util.validate(formData.phone, 'phone')) {
-            result.msg = '电话号码不能为空或格式不正确';
+        if (!_common_util.validate(formData.email, 'require')) {
+            result.msg = '邮箱不能为空';
+            return result;
+        }
+        if (!_common_util.validate(formData.email, 'email')) {
+            result.msg = '邮箱格式不正确';
+            return result;
+        }
+        if (!_common_util.validate(formData.phone, 'require')) {
+            result.msg = '电话号码不能为空';
+            return result;
+        }
+        if (!_common_util.validate(formData.phone, 'phone')) {
+            result.msg = '电话号码格式不正确';
             return result;
         }
         result.status = true;
