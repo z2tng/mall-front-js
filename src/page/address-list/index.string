@@ -1,0 +1,28 @@
+<div class="address-list">
+    <div class="subhead">{{title}}</div>
+    <div class="address-list-content">
+        {{#list}}
+        <div class="address-list-item" data-value="{{id}}">
+            <div class="delete-btn">
+                <i class="fa fa-times"></i>
+            </div>
+            <dl class="item">
+                <dd><span>{{addressName}}</span></dd>
+            </dl>
+            <dl class="item">
+                <dd><span>{{addressProvince}} {{addressCity}} {{addressDistrict}}</span></dd>
+            </dl>
+            <dl class="item">
+                <dd><span>{{addressDetail}}</span></dd>
+            </dl>
+            <dl class="item">
+                <dd><span>{{addressPhone}} {{addressMobile}}</span></dd>
+            </dl>
+            <dl class="item">
+                <dd>{{addressZip}}</dd>
+            </dl>
+        </div>
+        {{/list}}
+        <div class="address-add-item">+</div>
+    </div>
+</div>

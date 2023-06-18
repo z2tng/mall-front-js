@@ -1,0 +1,97 @@
+<div class="address-form">
+    {{#id}}
+    <dl class="address-form-item hide">
+        <dt>
+            <label for="address-id" class="label">ID:</label>
+        </dt>
+        <dd>
+            <input type="text" readonly="readonly" class="input" id="address-id" value="{{id}}" autocomplete="off">
+        </dd>
+    </dl>
+    {{/id}}
+    <dl class="address-form-item">
+        <dt>
+            <label for="address-name" class="label">收货人:</label>
+        </dt>
+        <dd>
+            <input type="text" class="input" id="address-name" value="{{addressName}}" placeholder="请输入收货人姓名" autocomplete="off">
+        </dd>
+    </dl>
+    <dl class="address-form-item">
+        <dt>
+            <label for="address-province" class="label">省份:</label>
+        </dt>
+        <dd>
+            <select class="select" id="address-province">
+                {{^addressProvince}}
+                <option disabled selected>请选择省份</option>
+                {{/addressProvince}}
+                {{#provinces}}
+                <option value="{{name}}" {{#selected}}selected{{/selected}}>{{name}}</option>
+                {{/provinces}}
+            </select>
+        </dd>
+    </dl>
+    <dl class="address-form-item">
+        <dt>
+            <label for="address-city" class="label">城市:</label>
+        </dt>
+        <dd>
+            <select class="select" id="address-city">
+                {{^addressCity}}
+                <option disabled selected>请选择城市</option>
+                {{/addressCity}}
+                {{#cities}}
+                <option value="{{name}}" {{#selected}}selected{{/selected}}>{{name}}</option>
+                {{/cities}}
+            </select>
+        </dd>
+    </dl>
+    <dl class="address-form-item">
+        <dt>
+            <label for="address-district" class="label">区县:</label>
+        </dt>
+        <dd>
+            <select class="select" id="address-district">
+                {{^addressDistrict}}
+                <option disabled selected>请选择区县</option>
+                {{/addressDistrict}}
+                {{#districts}}
+                <option value="{{name}}" {{#selected}}selected{{/selected}}>{{name}}</option>
+                {{/districts}}
+            </select>
+        </dd>
+    </dl>
+    <dl class="address-form-item">
+        <dt>
+            <label for="address-detail" class="label">详细地址:</label>
+        </dt>
+        <dd>
+            <input type="text" class="input" id="address-detail" value="{{addressDetail}}" placeholder="输入详细地址" autocomplete="off">
+        </dd>
+    </dl>
+    <dl class="address-form-item">
+        <dt>
+            <label for="address-mobile" class="label">手机:</label>
+        </dt>
+        <dd>
+            <input type="text" class="input" id="address-mobile" value="{{addressMobile}}" placeholder="请输入手机号码" autocomplete="off">
+        </dd>
+    </dl>
+    <dl class="address-form-item">
+        <dt>
+            <label for="address-phone" class="label">固定电话:</label>
+        </dt>
+        <dd>
+            <input type="text" class="input" id="address-phone" value="{{addressPhone}}" placeholder="请输入固定电话" autocomplete="off">
+        </dd>
+    </dl>
+    <dl class="address-form-item">
+        <dt>
+            <label for="address-zip" class="label">邮编:</label>
+        </dt>
+        <dd>
+            <input type="text" class="input" id="address-zip" value="{{addressZip}}" placeholder="请输入地址邮编" autocomplete="off">
+        </dd>
+    </dl>
+</div>
