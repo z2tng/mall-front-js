@@ -65,6 +65,24 @@ const _user_service = {
             error   : reject,
         });
     },
+    updateUserInfo: function (userInfo, resolve, reject) {
+        _common_util.request({
+            url     : _common_util.getServerURL('/user/update_user'),
+            method  : 'POST',
+            data    : userInfo,
+            success : resolve,
+            error   : reject,
+        });
+    },
+    resetPassword: function (passwordInfo, resolve, reject) {
+        _common_util.request({
+            url     : _common_util.getServerURL('/user/reset_password'),
+            method  : 'POST',
+            data    : passwordInfo,
+            success : resolve,
+            error   : reject,
+        });
+    },
 };
 
 module.exports = _user_service;

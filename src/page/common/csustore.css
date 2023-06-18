@@ -20,6 +20,12 @@ label{
 input[type="checkbox"]{
     cursor: pointer;
 }
+dt {
+    margin: 0 0 6px;
+}
+dd {
+    margin-left: 0;
+}
 
 /* 定宽布局 */
 .w{

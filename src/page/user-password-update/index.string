@@ -1,0 +1,37 @@
+<div class="user-password-update">
+    <div class="subhead">{{title}}</div>
+    <div class="content">
+        <div class="form">
+            <div class="form-error">
+                <i class="fa fa-exclamation-circle error-icon"></i>
+                <p class="error-message">error</p>
+            </div>
+            <dl class="form-item">
+                <dt>
+                    <label for="old-password" class="label">旧密码:</label>
+                </dt>
+                <dd>
+                    <input type="text" class="input" id="old-password" placeholder="请输入旧密码" autocomplete="off">
+                </dd>
+            </dl>
+            <dl class="form-item">
+                <dt>
+                    <label for="new-password" class="label">新密码:</label>
+                </dt>
+                <dd>
+                    <input type="text" class="input" id="new-password" placeholder="请输入新密码" autocomplete="off">
+                </dd>
+            </dl>
+            <dl class="form-item">
+                <dt>
+                    <label for="repeat-new-password" class="label">新密码:</label>
+                </dt>
+                <dd>
+                    <input type="text" class="input" id="repeat-new-password" placeholder="请再次输入新密码" autocomplete="off">
+                </dd>
+            </dl>
+
+            <a class="btn btn-radius" id="user-password-update">修改密码</a>
+        </div>
+    </div>
+</div>

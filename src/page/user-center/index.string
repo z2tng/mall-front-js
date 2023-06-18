@@ -1,0 +1,55 @@
+<div class="user-info">
+    <div class="subhead">{{title}}</div>
+    <div class="content">
+        <div class="form">
+            <div class="form-error">
+                <i class="fa fa-exclamation-circle error-icon"></i>
+                <p class="error-message">error</p>
+            </div>
+            <dl class="form-item">
+                <dt>
+                    <label for="username" class="label">用户名:</label>
+                </dt>
+                <dd>
+                    <input type="text" readonly="readonly" class="input" id="username" value="{{username}}" placeholder="请输入用户名" autocomplete="off">
+                </dd>
+            </dl>
+            <dl class="form-item">
+                <dt>
+                    <label for="email" class="label">邮箱:</label>
+                </dt>
+                <dd>
+                    <input type="text" class="input" id="email" value="{{email}}" placeholder="请输入邮箱" autocomplete="off">
+                </dd>
+            </dl>
+            <dl class="form-item">
+                <dt>
+                    <label for="phone" class="label">电话号码:</label>
+                </dt>
+                <dd>
+                    <input type="text" class="input" id="phone" value="{{phone}}" placeholder="请输入电话号码" autocomplete="off">
+                </dd>
+            </dl>
+            <dl class="form-item">
+                <dt>
+                    <label for="question" class="label">问题:</label>
+                </dt>
+                <dd>
+                    <input type="text" class="input" id="question" value="{{question}}" placeholder="请输入电话号码" autocomplete="off">
+                </dd>
+            </dl>
+            <dl class="form-item">
+                <dt>
+                    <label for="answer" class="label">答案:</label>
+                </dt>
+                <dd>
+                    <input type="text" class="input" id="answer" value="{{answer}}" placeholder="请输入电话号码" autocomplete="off">
+                </dd>
+            </dl>
+            <a class="btn btn-radius" id="update">更新用户信息</a>
+        </div>
+        <div class="avatar-upload-container">
+
+        </div>
+    </div>
+</div>
