@@ -16,7 +16,7 @@ const errorItem = {
     }
 }
 
-const _user_password_reset = {
+const _user_forget_password_reset = {
     forgetToken: '',    // 保存获取到的token
     status: false,      // 用于确定是否可以跳转到下一步
     currentStep: 1,     // 当前所在步骤
@@ -162,5 +162,5 @@ const _user_password_reset = {
 };
 
 $(function () {
-    _user_password_reset.init();
+    _user_forget_password_reset.init();
 })
