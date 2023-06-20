@@ -1,27 +1,79 @@
-.step-header {
-    text-align: center;
+.page-wrap{
+    background: #215496;
+    padding: 40px 0;
+}
+
+.user-password-reset{
     position: relative;
-    width: 100%;
-    height: 125px;
-    background: #ffffff;
-}
-
-.btn-prev {
-    display: inline-block;
-    padding: 0 20px;
-    height: 40px;
-    line-height: 40px;
-    vertical-align: middle;
-    border: 1px solid #215496;
+    margin: 0 auto;
+    width: 400px;
     background: #fff;
-    color: #215496;
-    font-size: 17px;
-    font-weight: bold;
-    outline: none;
-    cursor: pointer;
-    text-decoration: none;
 }
 
-.btn-next {
+.user-password-reset .title{
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 18px;
+    font-weight: bold;
+    color: #666;
+}
+
+.user-password-reset .process-container {
+    padding-top: 20px;
+}
+
+.user-password-reset .form{
+    padding: 20px;
+}
+
+.user-password-reset .form .form-error{
+    position: relative;
+    padding: 4px 0 4px 40px;
+    margin-bottom: 10px;
+    border: 0.5px solid red;
+    color: red;
+    background: #fde9e9;
+    display: none;
+}
+
+.user-password-reset .form .form-error .error-icon{
+    position: absolute;
+    left: 14px;
+    top :50%;
+    font-size: 14px;
+    margin-top: -7px;
+}
+
+.user-password-reset .form .form-item{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.user-password-reset .form-item .label{
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    bottom: 1px;
+    width: 40px;
+    line-height: 36px;
+    background: #f3f3f3;
+    font-size: 18px;
+    color: #d3d3d3;
+    text-align: center;
+    border-right: 1px solid #bdbdbd;
+}
+
+.user-password-reset .form-item .input{
+    padding: 10px 0 10px 50px;
+    width: 308px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 15px;
+    border: 1px solid #bdbdbd;
+    outline: none;
+}
+
+#next {
     float: right;
 }
