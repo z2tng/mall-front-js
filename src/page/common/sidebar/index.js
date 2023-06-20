@@ -15,6 +15,9 @@ const _sidebar = {
         $('#address-list').on('click', function () {
             window.location.href = './address-list.html';
         });
+        $('#order-list').on('click', function () {
+            window.location.href = './order-list.html';
+        });
     },
 };
 

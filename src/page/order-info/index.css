@@ -1,0 +1,225 @@
+.order-state-card {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.order-info-card {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.order-products-card {
+    width: 100%;
+    background-color: #fff;
+}
+
+/* 状态卡片样式 */
+.state-left {
+    float: left;
+    width: 300px;
+    padding: 20px 0 30px;
+    text-align: center;
+    border-right: 1px solid #f1f1f1;
+}
+
+.state-right {
+    padding: 60px 12px 20px;
+    float: left;
+    width: 750px;
+}
+
+.state-ltop {
+    margin-bottom: 40px;
+    color: #999;
+}
+
+.state-text {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 34px;
+    margin-bottom: 58px;
+}
+
+.state-text-blue {
+    color: #3080fe;
+}
+
+.state-text-red {
+    color: #f04134;
+}
+
+.state-text-yellow {
+    color: #f5a623;
+}
+
+.state-text-green {
+    color: #00a854;
+}
+
+/* 信息卡片样式 */
+.order-info-item {
+    float: left;
+    width: 30%;
+    height: 200px;
+    padding: 10px 10px 10px 20px;
+    border: 1px solid #f1f1f1;
+    border-width: 0 0 0 1px;
+}
+
+.order-info-item .info-title {
+    margin-bottom: 5px;
+}
+
+.order-info-item .info-title h4 {
+    height: 24px;
+    color: #333;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.order-info-item .info-content {
+    color: #333;
+    line-height: 20px;
+}
+
+.order-info-item .info-content .item {
+    display: block;
+    line-height: 24px;
+}
+
+.order-info-item .info-content .item:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.order-info-item .info-content .label {
+    float: left;
+    width: 80px;
+}
+
+.order-info-item .info-content .info-rcol {
+    float: left;
+    width: 180px;
+    max-height: 80px;
+    overflow: hidden;
+}
+
+
+/* 商品列表样式 */
+.prodcut-list {
+    width: 100%;
+    border: 1px solid #eee;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.prodcut-list .product-col {
+    width: 50%;
+}
+
+.prodcut-list .id-col {
+    width: 10%;
+}
+
+.prodcut-list .price-col {
+    width: 10%;
+}
+
+.prodcut-list .amount-col {
+    width: 10%;
+}
+
+.prodcut-list .total-price-col {
+    width: 10%;
+}
+
+.prodcut-list .operate-col {
+    width: 10%;
+}
+
+.prodcut-list th {
+    height: 32px;
+    line-height: 32px;
+    background: #f9f9f9;
+    font-weight: 400;
+    color: #333;
+    text-align: center;
+}
+
+.prodcut-list td {
+    vertical-align: top;
+    padding: 17px 0 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    color: #333;
+}
+
+.prodcut-list .product-info {
+    display: block;
+    float: left;
+}
+
+.prodcut-list .product-info .product-img {
+    float: left;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #efefef;
+    margin: 0 14px;
+    position: relative;
+}
+
+.prodcut-list .product-info .product-name {
+    width: 180px;
+    height: 36px;
+    line-height: 18px;
+    overflow: hidden;
+    color: #333;
+    text-align: left;
+}
+
+.product-total {
+    display: block;
+    padding: 20px;
+}
+
+.product-total:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.product-total ul {
+    float: right;
+}
+
+.product-total ul li {
+    display: block;
+    line-height: 28px;
+}
+
+.product-total .label {
+    float: left;
+    width: 500px;
+    text-align: right;
+}
+
+.product-total .value {
+    float: left;
+    width: 130px;
+    text-align: right;
+}
+
+.product-total .pay {
+    font-size: 18px;
+    font-weight: 700;
+}

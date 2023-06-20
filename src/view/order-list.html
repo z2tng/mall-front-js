@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%= require("./common/common-header.htm") %>
+    <title>Document</title>
+</head>
+<body>
+<%= require("./common/nav-top.htm") %>
+<%= require("./common/nav-search.htm") %>
+
+<div class="crumb">
+    <div class="w">
+        <div class="crumb-content">
+            <a href="./index.html" class="link">Store</a>
+            <span>></span>
+            <span class="link-text">个人中心</span>
+            <span>></span>
+            <span class="link-text">我的订单</span>
+        </div>
+    </div>
+</div>
+
+<div class="layout w">
+    <div class="sidebar-container">
+        <%= require("./common/sidebar.htm") %>
+    </div>
+
+    <div class="main">
+        <div class="order-list-content"></div>
+        <div class="pagination"></div>
+    </div>
+</div>
+
+<%= require("./common/common-footer.htm") %>
+</body>
+</html>

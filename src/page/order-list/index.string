@@ -1,0 +1,78 @@
+<div class="order-list">
+    <div class="subhead">我的订单</div>
+    <table class="content">
+        <colgroup>
+            <col class="product-col">
+            <col class="amount-col">
+            <col class="price-col">
+            <col class="total-price-col">
+            <col class="status-col">
+            <col class="operate-col">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>商品信息</th>
+                <th>数量</th>
+                <th>单价</th>
+                <th>实付金额</th>
+                <th>订单状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        {{#list}}
+        <tbody class="order-list-item" data-value="{{orderNo}}">
+            <tr class="separate-row"></tr>
+            <tr class="item-header">
+                <td colspan="6">
+                    <span class="time">{{createTime}}</span>
+                    <span class="number">订单号：<a href="./order-info.html?orderNo={{orderNo}}" class="link">{{orderNo}}</a></span>
+                    <span class="payment">总金额：{{paymentPrice}}</span>
+                </td>
+            </tr>
+            {{#orderItemVOList}}
+            <tr class="item-body">
+                <td>
+                    <div class="product-info">
+                        <div class="product-img">
+                            <a href="" target="_blank">
+                                <img src="{{imageServer}}{{productImage}}" alt="{{productName}}">
+                            </a>
+                        </div>
+                        <div class="product-name">
+                            <a href="" class="link" target="_blank">{{productName}}</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <span>{{quantity}}</span>
+                </td>
+                <td>
+                    <span>{{currentPrice}}</span>
+                </td>
+                <td>
+                    <span>{{totalPrice}}</span>
+                </td>
+                <td>
+                    <span>{{statusDesc}}</span>
+                    <br />
+                    <a href="./order-info.html?orderNo={{orderNo}}" class="link">订单详情</a>
+                </td>
+                <td>
+                    <a class="link">再次购买</a>
+                </td>
+            </tr>
+            {{/orderItemVOList}}
+
+            {{#addressVO}}
+            <tr class="item-footer">
+                <td colspan="6">
+                    <span class="address">
+                        收件人：{{addressName}} {{addressMobile}} ({{addressProvince}}{{addressCity}}{{addressDistrict}}{{addressDetail}})
+                    </span>
+                </td>
+            </tr>
+            {{/addressVO}}
+        </tbody>
+        {{/list}}
+    </table>
+</div>

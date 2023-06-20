@@ -24,6 +24,8 @@ module.exports = {
         "user-password-update"  : "./src/page/user-password-update/index.js",
         "product-list"          : "./src/page/product-list/index.js",
         "address-list"          : "./src/page/address-list/index.js",
+        "order-list"            : "./src/page/order-list/index.js",
+        "order-info"            : "./src/page/order-info/index.js",
         "common"                : "./src/page/common/index.js",
     },
     output: {
@@ -64,6 +66,8 @@ module.exports = {
         new HtmlWebpackPlugin(getHtmlPluginConfig("user-password-update")),
         new HtmlWebpackPlugin(getHtmlPluginConfig("product-list")),
         new HtmlWebpackPlugin(getHtmlPluginConfig("address-list")),
+        new HtmlWebpackPlugin(getHtmlPluginConfig("order-list")),
+        new HtmlWebpackPlugin(getHtmlPluginConfig("order-info")),
     ],
     resolve: {
         alias: {

@@ -1,0 +1,145 @@
+.layout {
+    display: grid;
+    grid-gap: 24px;
+    grid-auto-flow: column;
+    grid-template-columns: 296px 760px;
+}
+
+.layout .sidebar-container {
+    width: 296px;
+}
+
+.layout .main {
+    grid-column: 2;
+}
+
+.btn-radius {
+    border-radius: 6px;
+}
+
+.subhead {
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 8px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.content {
+    margin: 10px 0;
+    padding: 10px;
+    border-collapse: collapse;
+}
+
+.order-list thead th {
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background: #eee;
+    color: #666;
+    font-weight: 400;
+}
+
+.order-list tbody td {
+    border: 1px solid #e5e5e5;
+}
+
+.order-list-item span {
+    color: #aaa;
+}
+
+.order-list-item .item-header {
+    background: #eee;
+    height: 31px;
+    line-height: 31px;
+    color: #aaa;
+    overflow: hidden;
+}
+
+.order-list-item .item-footer {
+    background: #eee;
+    height: 31px;
+    line-height: 31px;
+    color: #aaa;
+    overflow: hidden;
+}
+
+.order-list-item .item-header .time {
+    margin-left: 10px;
+}
+
+.order-list-item .item-header .number {
+    margin-left: 30px;
+}
+
+.order-list-item .item-header .payment {
+    margin-left: 30px;
+}
+
+.order-list-item .item-footer .address {
+    margin-left: 10px;
+}
+
+.order-list-item .item-body {
+    text-align: center;
+    vertical-align: top;
+}
+
+.order-list-item .item-body td {
+    padding: 14px 0;
+}
+
+.order-list-item .product-info {
+    display: block;
+    float: left;
+}
+
+.order-list-item .product-info .product-img {
+    float: left;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #efefef;
+    margin: 0 14px;
+    position: relative;
+}
+
+.order-list-item .product-info .product-name {
+    width: 180px;
+    height: 36px;
+    line-height: 18px;
+    overflow: hidden;
+    color: #333;
+    text-align: left;
+}
+
+.order-list-item .link {
+    color: #333;
+    text-decoration: none;
+}
+
+.product-col {
+    width: 380px;
+}
+
+.amount-col {
+    width: 76px;
+}
+
+.price-col {
+    width: 76px;
+}
+
+.total-price-col {
+    width: 76px;
+}
+
+.status-col {
+    width: 76px;
+}
+
+.operate-col {
+    width: 76px;
+}
+
+.separate-row {
+    height: 20px;
+}
