@@ -62,8 +62,11 @@ const _common_util = {
         window.location.href = "./index.html";
     },
     // 跳转到登录界面
-    toLogin: function () {
-        window.location.href = "./user-login.html?redirect=" + encodeURI(window.location.href);
+    toLogin: function (isRedirect) {
+        // 默认跳转到登录界面且带上当前页面的URL
+        isRedirect
+            ? window.location.href = "./user-login.html"
+            : window.location.href = "./user-login.html?redirect=" + encodeURI(window.location.href);
     },
     // 跳转到地址列表界面
     toAddressList: function () {
@@ -71,7 +74,11 @@ const _common_util = {
     },
     // 校验字符串
     validate: function (value, type) {
-        // 字符串校验，支持字符串非空校验(require)、手机号码校验(phone)、邮箱格式校验(email)
+        // 字符串校验，
+        // 支持字符串非空校验(require)
+        // 手机号码校验(phone)
+        // 邮箱格式校验(email)
+        // 图标（<i></i>）格式校验(font)
         value = $.trim(value);
         if (type === "require") {
             return !!value;
@@ -81,6 +88,9 @@ const _common_util = {
         }
         if (type === "email") {
             return /^\w+([-+.]\w+])*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(value);
+        }
+        if (type === "font") {
+            return /<i(?:(?!<\/i>).|\n)*?<\/i>/g.test(value);
         }
     },
     // 成功提示
@@ -142,6 +152,48 @@ const _common_util = {
             }
         }
         return result;
+    },
+    // 获取订单状态的中文描述
+    getStatusDesc: function (status) {
+        let statusDesc = "";
+        switch (status) {
+            case 1:
+                statusDesc = "已取消";
+                break;
+            case 2:
+                statusDesc = "未付款";
+                break;
+            case 3:
+                statusDesc = "已付款";
+                break;
+            case 4:
+                statusDesc = "已发货";
+                break;
+            case 5:
+                statusDesc = "交易成功";
+                break;
+            case 6:
+                statusDesc = "交易关闭";
+                break;
+            default:
+                statusDesc = "未知状态";
+        }
+        return statusDesc;
+    },
+    // 获取付款方式的中文描述
+    getPaymentTypeDesc: function (paymentType) {
+        let paymentTypeDesc = "";
+        switch (paymentType) {
+            case 1:
+                paymentTypeDesc = "支付宝";
+                break;
+            case 2:
+                paymentTypeDesc = "微信支付";
+                break;
+            default:
+                paymentTypeDesc = "其他方式";
+        }
+        return paymentTypeDesc;
     },
 };
 

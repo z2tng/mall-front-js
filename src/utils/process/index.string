@@ -1,0 +1,21 @@
+<div class="process">
+    {{#list}}
+    <div class="node">
+        {{#node}}
+        <div class="node-{{nodeSize}} node-{{activeColor}} {{state}}">{{{node}}}</div>
+        {{/node}}
+        {{^node}}
+        <div class="node-{{nodeSize}} node-{{activeColor}} {{state}}">{{id}}</div>
+        {{/node}}
+        <ul>
+            <li class="node-title">{{title}}</li>
+            {{#desc}}
+            <li class="node-desc">{{desc}}</li>
+            {{/desc}}
+        </ul>
+    </div>
+    {{^final}}
+    <div class="line line-{{nodeSize}} line-{{activeColor}} {{state}}" style="width: {{lineLength}};"></div>
+    {{/final}}
+    {{/list}}
+</div>

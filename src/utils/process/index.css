@@ -1,0 +1,143 @@
+.process {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.process .node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+}
+
+.process .node-large {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    border: 1px solid #a0a2ad;
+    border-radius: 50%;
+}
+
+.process .node-normal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    font-size: 23px;
+    border: 1px solid #a0a2ad;
+    border-radius: 50%;
+}
+
+.process .node-small {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    border: 1px solid #a0a2ad;
+    border-radius: 50%;
+}
+
+.process .node-blue.active {
+    color: #3080fe;
+    background: #ffffff;
+    border: 1px solid #3080fe;
+}
+
+.process .node-blue.finish {
+    color: #ffffff;
+    background: #3080fe;
+    border: 1px solid #3080fe;
+}
+
+.process .node-red.active {
+    color: #f04134;
+    background: #ffffff;
+    border: 1px solid #f04134;
+}
+
+.process .node-red.finish {
+    color: #ffffff;
+    background: #f04134;
+    border: 1px solid #f04134;
+}
+
+.process .node-yellow.active {
+    color: #f5a623;
+    background: #ffffff;
+    border: 1px solid #f5a623;
+}
+
+.process .node-yellow.finish {
+    color: #ffffff;
+    background: #f5a623;
+    border: 1px solid #f5a623;
+}
+
+.process .node-green.active {
+    color: #00a854;
+    background: #ffffff;
+    border: 1px solid #00a854;
+}
+
+.process .node-green.finish {
+    color: #ffffff;
+    background: #00a854;
+    border: 1px solid #00a854;
+}
+
+.process .node-title {
+    font-size: 16px;
+    line-height: 25px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.process .node-desc {
+    font-size: 12px;
+    color: #333;
+}
+
+.process .line {
+    margin-top: 15px;
+    height: 1px;
+    background-color: #808080;
+    flex: 1;
+}
+
+.process .line-large {
+    margin-top: 30px;
+}
+
+.process .line-normal {
+    margin-top: 23px;
+}
+
+.process .line-small {
+    margin-top: 15px;
+}
+
+.process .line-blue.finish {
+    background-color: #3080fe;
+}
+
+.process .line-red.finish {
+    background-color: #f04134;
+}
+
+.process .line-yellow.finish {
+    background-color: #f5a623;
+}
+
+.process .line-green.finish {
+    background-color: #00a854;
+}
