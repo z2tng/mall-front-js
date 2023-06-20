@@ -1,6 +1,6 @@
 <div class="address-list">
     <div class="subhead">{{title}}</div>
-    <div class="address-list-content">
+    <div class="content">
         {{#list}}
         <div class="address-list-item" data-value="{{id}}">
             <div class="delete-btn">
