@@ -1,31 +1,52 @@
 require("./index.css");
 
-const addressInfoTemplate = require("./index.string");
+const addressListTemplate = require("./index.string");
+const addressInfoTemplate = require("./info.string");
 
 const _common_util = require("utils/util.js");
 const _address_service = require("service/address-service.js");
 
-const _address_info = {
+const Modal = require("utils/modal/index.js");
+
+const _address = {
+    container: null,
     defaultAddressInfo: {
-        id: null,
-        addressName: '',
-        addressProvince: '',
-        addressCity: '',
-        addressDistrict: '',
-        addressDetail: '',
-        addressPhone: '',
-        addressMobile: '',
-        addressZip: '',
+        id              : null,
+        addressName     : "",
+        addressProvince : "",
+        addressCity     : "",
+        addressDistrict : "",
+        addressDetail   : "",
+        addressPhone    : "",
+        addressMobile   : "",
+        addressZip      : "",
     },
-    init: function (addressId) {
-        this.defaultAddressInfo.id = addressId;
+    init: function (container) {
+        this.container = container;
         this.onLoad();
+        this.bindEvents();
     },
     onLoad: function () {
-        this.loadAddressInfo();
+        this.loadAddressList();
     },
     bindEvents: function () {
         const _this = this;
+
+        $(document).on("click", ".address-list-item", function () {
+            const addressId = $.trim($(this).attr("data-value"));
+            _this.loadAddressInfo(addressId);
+        });
+
+        $(document).on("click", ".address-add-item", function () {
+            _this.loadAddressInfo();
+        });
+
+        $(document).on("click", ".delete-btn", function () {
+            const addressId = $.trim($(this).parent().attr("data-value"));
+            _this.deleteAddress(addressId);
+            return false;
+        });
+
         $(document).on("change", "#address-province", function () {
             let province = $.trim($(this).val());
             _this.updateRegion(province, null, null);
@@ -36,14 +57,26 @@ const _address_info = {
             _this.updateRegion(province, city, null);
         });
     },
-    loadAddressInfo: function () {
+    loadAddressList: function () {
+        let addressListInfoHTML = "";
+        const container = this.container;
+
+        _address_service.getAddressList(function (res) {
+            addressListInfoHTML = _common_util.renderHTML(addressListTemplate, {list: res});
+            container.html(addressListInfoHTML);
+        }, function (errorMsg) {
+            _common_util.errorTips(errorMsg);
+        });
+    },
+    loadAddressInfo: function (addressId) {
         const _this = this;
-        let flag = !!this.defaultAddressInfo.id;
+        let flag = !!addressId;
         let addressInfoHTML = "";
         let regionData = _common_util.getRegionData();
+
         if (flag) {
             _address_service.getAddressInfo(JSON.stringify({
-                addressId: _this.defaultAddressInfo.id
+                addressId: addressId
             }), function (res) {
                 regionData = _common_util.getRegionData(
                     res.addressProvince || null,
@@ -51,71 +84,42 @@ const _address_info = {
                     res.addressDistrict || null,
                 );
                 let data = $.extend({}, res, regionData);
-                addressInfoHTML = _common_util.renderHTML(addressInfoTemplate, data);
 
-                $.confirm({
-                    boxWidth: "30%",
-                    title: "修改地址",
-                    content: addressInfoHTML,
-                    buttons: {
-                        formSubmit: {
-                            text: "提交",
-                            btnClass: "btn-blue",
-                            action: function () {
-                                _this.updateAddressInfo();
-                                return false;
-                            },
-                        },
-                        cancel: {
-                            text: "取消",
-                        },
-                    },
-                    onContentReady: function () {
-                        // bind to events
-                        const jc = this;
-                        this.$content.find("form").on("submit", function (e) {
-                            // if the user submits the form by pressing enter the field.
-                            e.preventDefault();
-                            jc.$formSubmit.trigger("click"); // reference the button and click it
-                        });
-                        _this.bindEvents();
-                    }
+                addressInfoHTML = _common_util.renderHTML(addressInfoTemplate, data);
+                _this.popModal("修改地址", addressInfoHTML, function () {
+                    _this.updateAddressInfo(addressId);
+                    return false;
                 });
+
             }, function (errMsg) {
                 _common_util.errorTips(errMsg);
             });
         } else {
             let data = $.extend({}, this.defaultAddressInfo, regionData);
             addressInfoHTML = _common_util.renderHTML(addressInfoTemplate, data);
-            $.confirm({
-                boxWidth: "30%",
-                title: "添加地址",
-                content: addressInfoHTML,
-                buttons: {
-                    formSubmit: {
-                        text: "提交",
-                        btnClass: "btn-blue",
-                        action: function () {
-                            _this.createAddress();
-                            return false;
-                        },
-                    },
-                    cancel: {
-                        text: "取消",
-                    },
-                },
-                onContentReady: function () {
-                    // bind to events
-                    const jc = this;
-                    this.$content.find("form").on("submit", function (e) {
-                        // if the user submits the form by pressing enter the field.
-                        e.preventDefault();
-                        jc.$formSubmit.trigger("click"); // reference the button and click it
-                    });
-                    _this.bindEvents();
-                }
+            _this.popModal("添加地址", addressInfoHTML, function () {
+                _this.createAddress();
+                return false;
             });
         }
+    },
+    // 弹出模态框
+    popModal: function (title, content, confirmCallback) {
+        this.modal ? "" : (this.modal = new Modal());
+        this.modal.init({
+            container: $("#modal-container"),
+            title: title,
+            content: content,
+            buttons: {
+                confirm: {
+                    text: "确认",
+                    callback: confirmCallback,
+                },
+                cancel: {
+                    text: "取消",
+                },
+            }
+        });
     },
     // 地区更新事件
     updateRegion: function (province, city, district) {
@@ -179,18 +183,10 @@ const _address_info = {
                 _common_util.successTips("新增地址成功！");
                 _common_util.toAddressList();
             }, function (errorMsg) {
-                $.alert({
-                    boxWidth: "30%",
-                    title: "添加地址失败",
-                    content: errorMsg,
-                });
+                _common_util.errorTips(errorMsg);
             });
         } else {
-            $.alert({
-                boxWidth: "30%",
-                title: "添加地址失败",
-                content: validateResult.msg,
-            });
+            _common_util.errorTips(validateResult.msg);
         }
     },
     // 更新地址
@@ -203,19 +199,29 @@ const _address_info = {
                 _common_util.successTips("修改地址成功！");
                 _common_util.toAddressList();
             }, function (errorMsg) {
-                $.alert({
-                    boxWidth: "30%",
-                    title: "更新地址失败",
-                    content: errorMsg,
-                });
+                _common_util.errorTips(errorMsg);
             });
         } else {
-            $.alert({
-                boxWidth: "30%",
-                title: "更新地址失败",
-                content: validateResult.msg,
-            });
+            _common_util.errorTips(validateResult.msg);
         }
+    },
+    // 删除地址
+    deleteAddress: function (addressId) {
+        if (addressId === null) {
+            _common_util.errorTips("删除地址失败，地址不存在！");
+            return;
+        }
+
+        this.popModal("删除地址", "确认删除该地址？", function () {
+            _address_service.deleteAddress(JSON.stringify({
+                addressId: addressId,
+            }), function () {
+                _common_util.successTips("删除地址成功！");
+                _common_util.toAddressList();
+            }, function (errorMsg) {
+                _common_util.errorTips(errorMsg);
+            });
+        });
     },
     // 表单验证
     formDataValidate: function (formData) {
@@ -261,4 +267,4 @@ const _address_info = {
     },
 };
 
-module.exports = _address_info;
+module.exports = _address;

@@ -1,0 +1,16 @@
+<div class="modal" style="width: {{width}};">
+    <h3 class="title">{{title}}</h3>
+    <div class="content">
+        {{{content}}}
+    </div>
+    {{#buttons}}
+    <div class="footer">
+        {{#confirm}}
+        <button class="btn btn-confirm">{{text}}</button>
+        {{/confirm}}
+        {{#cancel}}
+        <button class="btn btn-cancel">{{text}}</button>
+        {{/cancel}}
+    </div>
+    {{/buttons}}
+</div>

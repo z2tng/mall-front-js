@@ -1,5 +1,3 @@
-require("utils/jconfirm/index.js");
-
 const region = require("data/pca.json");
 
 const Hogan = require("hogan.js");
