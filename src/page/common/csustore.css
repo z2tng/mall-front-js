@@ -66,6 +66,12 @@ dd {
     cursor: pointer;
     text-decoration: none;
 }
+.btn-disabled{
+    background: #ccc;
+    color: #fff;
+    border: 1px solid #ebebeb;
+    cursor: not-allowed;
+}
 .btn-plain {
     display: inline-block;
     padding: 0 20px;

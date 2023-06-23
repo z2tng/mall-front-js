@@ -1,0 +1,65 @@
+<div class="product-intro">
+    <div class="preview-wrapper">
+        <div class="main-img">
+            <img src="{{imageServer}}{{mainImage}}" alt="">
+        </div>
+        <div class="preview-list-wrapper">
+            <span class="preview-btn forward">
+                <i class="fa fa-angle-left"></i>
+            </span>
+            <span class="preview-btn backward">
+                <i class="fa fa-angle-right"></i>
+            </span>
+            <div class="preview-items">
+                <ul class="img-list" style="width: {{imgListWidth}}px;">
+                    <li class="active">
+                        <img src="{{imageServer}}{{mainImage}}" alt="">
+                    </li>
+                    {{#subImages}}
+                    <li>
+                        <img src="{{imageServer}}{{.}}" alt="">
+                    </li>
+                    {{/subImages}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="info-wrapper">
+        <div class="title">{{{detail}}}</div>
+        <div class="subtitle">{{subtitle}}</div>
+        <div class="line"></div>
+        <div class="info-item">
+            <span class="label">价格：</span>
+            <span class="price-value">￥{{price}}</span>
+        </div>
+        <div class="info-item">
+            <span class="label">库存：</span>
+            <span class="stock-value">{{stock}}</span>
+        </div>
+        <div class="info-item">
+            <span class="label">数量：</span>
+            <div class="quantity">1</div>
+        </div>
+        <button class="btn add-cart-btn">加入购物车</button>
+    </div>
+</div>
+
+<div class="detail">
+    <div class="tab">
+        <ul>
+            <li class="tab-item active">商品详情</li>
+        </ul>
+    </div>
+    <div class="content">
+        <ul>
+            <li class="detail-item">
+                <img src="{{imageServer}}{{mainImage}}" alt="">
+            </li>
+            {{#subImages}}
+            <li class="detail-item">
+                <img src="{{imageServer}}{{.}}" alt="">
+            </li>
+            {{/subImages}}
+        </ul>
+    </div>
+</div>
