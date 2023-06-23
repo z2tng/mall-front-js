@@ -21,8 +21,6 @@ const _order_list = {
         return this;
     },
     bindEvents: function () {
-        const _this = this;
-
     },
     onLoad: function () {
         this.loadOrderList();
@@ -51,7 +49,7 @@ const _order_list = {
             _common_util.errorTips(errorMsg);
         });
     },
-    // TODO: 加载分页插件
+    // 加载分页插件
     loadPagination: function (current, pages) {
         const _this = this;
         this.pagination ? "" : (this.pagination = new Pagination());
