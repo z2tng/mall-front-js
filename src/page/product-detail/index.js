@@ -99,7 +99,7 @@ const _product_detail = {
     loadInputNumber: function (min, max) {
         const _this = this;
         this.inputNumber ? "" : (this.inputNumber = new InputNumber());
-        this.inputNumber.render({
+        this.inputNumber.init({
             container : $('.quantity'),
             value     : _this.requestParam.quantity,
             min       : min,
