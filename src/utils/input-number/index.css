@@ -1,0 +1,103 @@
+.input-number {
+    position: relative;
+}
+
+.input-number .input-number-input {
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.input-number .input-number-btn {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    background: #f1f1f1;
+    color: #666;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.input-number .input-number-btn.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.input-number.normal .input-number-input {
+    width: 42px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.input-number.normal .input-number-btn {
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    position: absolute;
+    right: -15px;
+}
+
+.input-number.normal .input-number-up {
+    top: 0;
+}
+
+.input-number.normal .input-number-down {
+    bottom: 0;
+}
+
+.input-number.large .input-number-input {
+    width: 42px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    padding: 0 10px;
+}
+
+.input-number.large .input-number-btn {
+    width: 15px;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    right: -15px;
+}
+
+.input-number.large .input-number-up {
+    top: 0;
+}
+
+.input-number.large .input-number-down {
+    bottom: 0;
+}
+
+.input-number.small .input-number-input {
+    width: 40px;
+    height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0 10px;
+}
+
+.input-number.small .input-number-btn {
+    display: block;
+    width: 15px;
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    background: #f1f1f1;
+    color: #666;
+    position: absolute;
+    border: 1px solid #ccc;
+}
+
+.input-number.small .input-number-up {
+    top: 0;
+    right: 0;
+}
+
+.input-number.small .input-number-down {
+    top: 0;
+    left: 0;
+}
