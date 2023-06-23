@@ -2,6 +2,7 @@ require("./index.css");
 
 const _common_util = require("utils/util.js");
 const _user_service = require("service/user-service.js");
+const _cart_service = require("service/cart-service.js");
 
 const _nav_top = {
     init: function () {
@@ -28,7 +29,6 @@ const _nav_top = {
     },
     loadUserInfo: function () {
         _user_service.getUserInfo(function (res) {
-            console.log(res);
             $('.user.not-login').hide()
                 .siblings('.user.login').show()
                 .find('.username').text(res.username)
@@ -38,7 +38,12 @@ const _nav_top = {
         });
     },
     loadCartCount: function () {
-
+        _cart_service.getCartCount(function (res) {
+            $('.cart-count').text(res || 0);
+        }, function (errorMsg) {
+            console.log(errorMsg);
+            $('.cart-count').text(0);
+        });
     },
 };
 

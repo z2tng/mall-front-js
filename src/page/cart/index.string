@@ -1,0 +1,93 @@
+<table class="cart">
+    <colgroup>
+        <col class="select-col">
+        <col class="product-col">
+        <col class="product-subtitle-col">
+        <col class="price-col">
+        <col class="amount-col">
+        <col class="total-price-col">
+        <col class="operate-col">
+    </colgroup>
+    <thead>
+        <tr>
+            <th class="cart-checkbox-wrapper">
+                <input type="checkbox" name="select-all" class="cart-checkbox" {{#allChecked}}checked{{/allChecked}}>
+                全选
+            </th>
+            <th>商品</th>
+            <th>&nbsp;</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>小计</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    {{#cartItemVOList}}
+    <tbody class="cart-item" data-value="{{productId}}">
+        <tr class="separate-row"></tr>
+        <tr class="item-body">
+            <td class="item-checkbox-wrapper">
+                <input type="checkbox" name="select-item" class="item-checkbox" {{#checked}}checked{{/checked}}>
+            </td>
+            <td>
+                <div class="product-info">
+                    <div class="product-img">
+                        <a href="" target="_blank">
+                            <img src="{{imageServer}}{{productMainImage}}" alt="{{productName}}">
+                        </a>
+                    </div>
+                    <div class="product-name">
+                        <a href="" class="link" target="_blank">{{productName}}</a>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <span>{{productSubtitle}}</span>
+            </td>
+            <td>
+                <span>{{productPrice}}</span>
+            </td>
+            <td class="cart-item-quantity">
+                <div class="quantity"></div>
+                {{#checkStock}}
+                <span>有货</span>
+                {{/checkStock}}
+                {{^checkStock}}
+                <span>有货，但库存不充足足</span>
+                {{/checkStock}}
+            </td>
+            <td>
+                <span>{{productTotalPrice}}</span>
+            </td>
+            <td>
+                <a class="delete-item-btn link">删除</a>
+            </td>
+        </tr>
+    </tbody>
+    {{/cartItemVOList}}
+</table>
+
+{{^cartItemVOList}}
+<p class="error-tip">很抱歉，您的购物车内没有商品...</p>
+{{/cartItemVOList}}
+
+<div class="cart-toolbar">
+    <div class="left">
+        <div class="cart-checkbox-wrapper">
+            <input type="checkbox" name="select-all" class="cart-checkbox" {{#allChecked}}checked{{/allChecked}}>
+            全选
+        </div>
+        <div class="delete-selected-wrapper">
+            <span class="delete-selected-btn link">删除选中的商品</span>
+        </div>
+    </div>
+    <div class="right">
+        <div class="count-wrapper">
+            已选择<span class="count-text">{{checkedCount}}</span>件商品
+        </div>
+        <div class="price-wrapper">
+            总价：<span class="price-text">￥{{cartTotalPrice}}</span>
+        </div>
+        <div class="cart-btn">去结算</div>
+    </div>
+</div>

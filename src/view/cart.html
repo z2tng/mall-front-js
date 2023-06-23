@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%= require("./common/common-header.htm") %>
+    <title>Document</title>
+</head>
+<body>
+<%= require("./common/nav-top.htm") %>
+<%= require("./common/nav-search.htm") %>
+
+<div class="crumb">
+    <div class="w">
+        <div class="crumb-content">
+            <a href="./index.html" class="link">Store</a>
+            <span>></span>
+            <span class="link-text">购物车</span>
+        </div>
+    </div>
+</div>
+
+<div class="w">
+    <div class="cart-content">
+        <div class="loading"></div>
+    </div>
+</div>
+
+<%= require("./common/common-footer.htm") %>
+</body>
+</html>
