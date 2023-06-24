@@ -25,7 +25,7 @@ const _order_info = {
             '<i class="fa fa-check"></i>',
         ],
         titles      : ['提交订单', '付款成功', '商品出库', '等待收货', '完成'],
-        descs       : ['订单已提交，未付款', '订单已付款', '商品已出库', '等待收货', '订单已完成'],
+        descs       : ['订单已提交（未付款）', '订单已付款', '商品已出库', '等待收货', '订单已完成'],
         nodeSize    : 'large',
         activeColor : 'blue',
         lineLength  : '80px',
@@ -49,11 +49,13 @@ const _order_info = {
 
         const _this = this;
         _order_service.getOrderDetail(requestParam, function (res) {
+            let status = res.status;
             let order = $.extend({}, res, {
-                statusDesc: _common_util.getStatusDesc(res.status),
-                paymentTypeDesc: _common_util.getPaymentTypeDesc(res.paymentType),
-                actualPayment: (res.paymentPrice + res.postage).toFixed(2),
-                stateTextColor: res.status > 1 ? `state-text-${processParam.activeColor}` : "",
+                statusDesc      : _common_util.getStatusDesc(status),
+                isOrderUnpaid   : status === 2,
+                paymentTypeDesc : _common_util.getPaymentTypeDesc(res.paymentType),
+                actualPayment   : (res.paymentPrice + res.postage).toFixed(2),
+                stateTextColor  : status > 1 ? `state-text-${processParam.activeColor}` : "",
             });
             
             orderInfoHTML = _common_util.renderHTML(orderInfoTemplate, order);

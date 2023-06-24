@@ -1,0 +1,39 @@
+<div class="order-pay">
+    {{#isOrderUnpaid}}
+    <div class="header">
+        <div class="title">
+            <i class="fa fa-clock-o"></i>
+            待支付
+        </div>
+    </div>
+    <div class="body">
+        <div>
+            订单编号：<span>{{orderNo}}</span>
+        </div>
+        <div>
+            订单价格：<span class="price-text">￥{{paymentPrice}}</span>
+        </div>
+        <div>
+            收货地址：{{#addressVO}}<span>{{addressProvince}}{{addressCity}}{{addressDistrict}} {{addressDetail}}</span>{{/addressVO}}
+        </div>
+        <div>
+            商品名称：{{#orderItemVOList}}<span> {{productName}} /</span>{{/orderItemVOList}}
+        </div>
+    </div>
+    <div class="footer">
+        <div class="title">请选择支付方式</div>
+        <div class="pay-type-list">
+            <div class="pay-btn wepay">微信支付</div>
+            <div class="pay-btn alipay">支付宝支付</div>
+        </div>
+    </div>
+    {{/isOrderUnpaid}}
+    {{^isOrderUnpaid}}
+    <div class="header">
+        <div class="title">
+            <i class="fa fa-check"></i>
+            该订单已支付
+        </div>
+    </div>
+    {{/isOrderUnpaid}}
+</div>

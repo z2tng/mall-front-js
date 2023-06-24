@@ -41,7 +41,7 @@
     font-size: 24px;
     font-weight: 700;
     line-height: 34px;
-    margin-bottom: 58px;
+    margin-bottom: 33px;
 }
 
 .state-text-blue {
@@ -58,6 +58,15 @@
 
 .state-text-green {
     color: #00a854;
+}
+
+.state-btns .btn {
+    width: 75px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+    border-radius: 2px;
+    padding: 0 10px;
 }
 
 /* 信息卡片样式 */
