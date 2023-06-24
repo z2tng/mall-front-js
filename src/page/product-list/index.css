@@ -86,14 +86,3 @@
 .product-list-content .product-item .product-name-content .product-name:hover{
     color: #215496;
 }
-
-.error-tip{
-    height: 60px;
-    line-height: 60px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #215496;
-    text-align: center;
-    background: #eee;
-}
-

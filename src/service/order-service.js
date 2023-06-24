@@ -31,21 +31,21 @@ const _order_service = {
         });
     },
     // 创建订单
-    createOrder: function (addressId, resolve, reject) {
+    createOrder: function (creatOrderInfo, resolve, reject) {
         _common_util.request({
             url     : _common_util.getServerURL('/order/create'),
             method  : 'POST',
-            data    : JSON.stringify({addressId: addressId}),
+            data    : creatOrderInfo,
             success : resolve,
             error   : reject,
         });
     },
     // 取消订单
-    cancelOrder: function (requestParam, resolve, reject) {
+    cancelOrder: function (orderInfo, resolve, reject) {
         _common_util.request({
             url     : _common_util.getServerURL('/order/cancel'),
             method  : 'POST',
-            data    : requestParam,
+            data    : orderInfo,
             success : resolve,
             error   : reject,
         });

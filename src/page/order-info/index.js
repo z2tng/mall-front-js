@@ -36,7 +36,11 @@ const _order_info = {
         return this;
     },
     bindEvents: function () {
+        const _this = this;
 
+        $(document).on("click", "#order-cancel-btn", function () {
+            _this.cancelOrder();
+        });
     },
     onLoad: function () {
         this.loadOrderDetail();
@@ -52,6 +56,7 @@ const _order_info = {
             let status = res.status;
             let order = $.extend({}, res, {
                 statusDesc      : _common_util.getStatusDesc(status),
+                isOrderCanceled : status === 1,
                 isOrderUnpaid   : status === 2,
                 paymentTypeDesc : _common_util.getPaymentTypeDesc(res.paymentType),
                 actualPayment   : (res.paymentPrice + res.postage).toFixed(2),
@@ -64,6 +69,15 @@ const _order_info = {
             processParam.container = $(".process-container");
             processParam.current = res.status - 1;
             _this.loadProcess(processParam);
+        }, function (errMsg) {
+            _common_util.errorTips(errMsg);
+        });
+    },
+    cancelOrder: function () {
+        let requestParam = this.requestParam;
+        _order_service.cancelOrder(JSON.stringify(requestParam), function (res) {
+            _common_util.successTips("订单取消成功");
+            window.location.reload();
         }, function (errMsg) {
             _common_util.errorTips(errMsg);
         });

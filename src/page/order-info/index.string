@@ -4,6 +4,9 @@
         <div class="state-ltop">订单号：{{orderNo}}</div>
         <div class="state-text {{stateTextColor}}">{{statusDesc}}</div>
         <div class="state-btns">
+            {{^isOrderCanceled}}
+            <a id="order-cancel-btn" class="btn">取消订单</a>
+            {{/isOrderCanceled}}
             {{#isOrderUnpaid}}
             <a href="./order-pay.html?orderNo={{orderNo}}" class="btn">订单支付</a>
             {{/isOrderUnpaid}}
@@ -75,7 +78,7 @@
             <col class="product-col">
             <col class="id-col">
             <col class="price-col">
-            <col class="amount-col">
+            <col class="quantity-col">
             <col class="total-price-col">
             <col class="operate-col">
         </colgroup>

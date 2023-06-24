@@ -90,7 +90,7 @@ const _product_detail = {
         let requestParam = this.requestParam;
 
         _cart_service.addProductToCart(JSON.stringify(requestParam), function (res) {
-            window.location.href = './cart.html';
+            window.location.href = './add-to-cart.html?productId=' + requestParam.productId + '&quantity=' + requestParam.quantity;
         }, function (errorMsg) {
             _common_util.errorTips(errorMsg);
         });      

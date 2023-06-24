@@ -60,8 +60,14 @@
     color: #00a854;
 }
 
+.state-btns {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .state-btns .btn {
-    width: 75px;
+    width: 60px;
     height: 25px;
     line-height: 25px;
     font-size: 12px;
@@ -142,7 +148,7 @@
     width: 10%;
 }
 
-.prodcut-list .amount-col {
+.prodcut-list .quantity-col {
     width: 10%;
 }
 

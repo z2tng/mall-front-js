@@ -1,51 +1,61 @@
 .address-list {
-    margin: 0 0 10px;
-    padding: 10px;
+    margin: 10px 0;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-gap: 5px;
 }
 
 .address-list-item {
     display: block;
-    width: 150px;
     height: 100px;
-    border: 1px solid #e6e6e6;
+    border: 2px dashed #e6e6e6;
     margin: 5px;
     padding: 10px;
     cursor: pointer;
     position: relative;
 }
 
-.address-list-item .delete-btn {
-    font-size: 14px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0 5px;
-}
-
-.address-list-item .delete-btn:hover {
-    color: #fff;
+.address-list-item.active {
+    border: 2px dashed #215496!important;
 }
 
 .address-list-item:hover {
-    background-color: #e6e6e6;
+    border: 2px dashed #007eb8;
 }
 
-.address-list-item .item {
-    width: 120px;
+.address-list-item .item-header {
+    margin-bottom: 10px;
+    height: 15px;
+    line-height: 15px;
     text-align: left;
     color: #999;
 }
 
+.address-list-item .item-body {
+    margin-bottom: 10px;
+    height: 45px;
+    line-height: 15px;
+    text-align: left;
+    color: #999;
+}
+
+.address-list-item .item-footer {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-align: left;
+    color: #999;
+    display: none;
+}
+
 .address-add-item {
     display: block;
-    width: 150px;
+    flex: 1 200px;
     height: 100px;
     line-height: 80px;
     text-align: center;
-    border: 1px solid #e6e6e6;
+    border: 2px dashed #e6e6e6;
     color: #e9e9e9;
     font-size: 100px;
     margin: 5px;

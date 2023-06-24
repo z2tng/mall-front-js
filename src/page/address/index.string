@@ -1,24 +1,17 @@
 <div class="address-list">
     {{#list}}
-    <div class="address-list-item" data-value="{{id}}">
-        <div class="delete-btn">
-            <i class="fa fa-times"></i>
+    <div class="address-list-item" data-id="{{id}}">
+        <div class="item-header">
+            <span>{{addressProvince}} {{addressCity}} {{addressDistrict}}</span>
+            <span style="margin-left: 10px;">({{addressName}}) 收</span>
         </div>
-        <dl class="item">
-            <dd><span>{{addressName}}</span></dd>
-        </dl>
-        <dl class="item">
-            <dd><span>{{addressProvince}} {{addressCity}} {{addressDistrict}}</span></dd>
-        </dl>
-        <dl class="item">
-            <dd><span>{{addressDetail}}</span></dd>
-        </dl>
-        <dl class="item">
-            <dd><span>{{addressPhone}} {{addressMobile}}</span></dd>
-        </dl>
-        <dl class="item">
-            <dd>{{addressZip}}</dd>
-        </dl>
+        <div class="item-body">
+            <span>{{addressDetail}}</span>
+        </div>
+        <div class="item-footer">
+            <span class="btn-mini modify-btn">编辑</span>
+            <span class="btn-mini delete-btn">删除</span>
+        </div>
     </div>
     {{/list}}
     <div class="address-add-item">+</div>

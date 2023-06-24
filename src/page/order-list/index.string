@@ -3,7 +3,7 @@
     <table class="content">
         <colgroup>
             <col class="product-col">
-            <col class="amount-col">
+            <col class="quantity-col">
             <col class="price-col">
             <col class="total-price-col">
             <col class="status-col">

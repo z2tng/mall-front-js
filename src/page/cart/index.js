@@ -24,9 +24,9 @@ const _cart = {
             const productId = $this.parents(".cart-item").data("value");
 
             if ($this.is(":checked")) {
-                _this.selectCartItem(productId);
+                _this.checkCartItem(productId);
             } else {
-                _this.unselectCartItem(productId);
+                _this.uncheckCartItem(productId);
             }
         });
         // 全选购物车商品事件
@@ -34,9 +34,9 @@ const _cart = {
             const $this = $(this);
 
             if ($this.is(":checked")) {
-                _this.selectAllCartItems();
+                _this.checkAllCartItems();
             } else {
-                _this.unselectAllCartItems();
+                _this.uncheckAllCartItems();
             }
         });
         // 删除购物车商品事件
@@ -47,8 +47,8 @@ const _cart = {
             _this.deleteCartItem(productId);
         });
         // 删除选中的购物车商品事件
-        $(document).on("click", ".delete-selected-btn", function () {
-            _this.deleteSelectedCartItem();
+        $(document).on("click", ".delete-checked-btn", function () {
+            _this.deleteCheckedCartItem();
         });
     },
     onLoad: function () {
@@ -66,7 +66,7 @@ const _cart = {
             if (cartItemVOList.length === 0) {
                 cartVO.allChecked = false;
             }
-            cartVO.checkedCount = _this.getSelectedCartItemCount(cartItemVOList);
+            cartVO.checkedCount = _this.getCheckedCartItemCount(cartItemVOList);
 
             cartHTML = _common_util.renderHTML(cartTemplate, res);
             $cartContent.html(cartHTML);
@@ -103,18 +103,18 @@ const _cart = {
                 let productId = container.parents(".cart-item").data("value");
                 if (value > max) {
                     _common_util.errorTips('库存不足');
-                    _this.updateProductCount(productId, max);
+                    _this.updateCart(productId, max);
                 } else if (value < min) {
                     _common_util.errorTips('购买数量不能小于1');
-                    _this.updateProductCount(productId, min);
+                    _this.updateCart(productId, min);
                 } else {
-                    _this.updateProductCount(productId, value);
+                    _this.updateCart(productId, value);
                 }
             }
         });
     },
     // 获取选择购物车商品的数量
-    getSelectedCartItemCount: function (list) {
+    getCheckedCartItemCount: function (list) {
         let count = 0;
 
         list.forEach(function (cartItem) {
@@ -126,40 +126,44 @@ const _cart = {
         return count;
     },
     // 选择购物车商品
-    selectCartItem: function (productId) {
+    checkCartItem: function (productId) {
         const _this = this;
         
-        _cart_service.checkProduct(productId, function (res) {
+        _cart_service.checkCartItem(JSON.stringify({
+            productId: productId
+        }), function (res) {
             _this.loadCart();
         }, function (errorMsg) {
             _common_util.errorTips(errorMsg);
         });
     },
     // 取消选择购物车商品
-    unselectCartItem: function (productId) {
+    uncheckCartItem: function (productId) {
         const _this = this;
 
-        _cart_service.uncheckProduct(productId, function (res) {
+        _cart_service.uncheckCartItem(JSON.stringify({
+            productId: productId
+        }), function (res) {
             _this.loadCart();
         }, function (errorMsg) {
             _common_util.errorTips(errorMsg);
         });
     },
     // 全选购物车商品
-    selectAllCartItems: function () {
+    checkAllCartItems: function () {
         const _this = this;
 
-        _cart_service.checkAllProducts(function (res) {
+        _cart_service.checkAllCartItems(function (res) {
             _this.loadCart();
         }, function (errorMsg) {
             _common_util.errorTips(errorMsg);
         });
     },
     // 取消全选购物车商品
-    unselectAllCartItems: function () {
+    uncheckAllCartItems: function () {
         const _this = this;
 
-        _cart_service.uncheckAllProducts(function (res) {
+        _cart_service.uncheckAllCartItems(function (res) {
             _this.loadCart();
         }, function (errorMsg) {
             _common_util.errorTips(errorMsg);
@@ -169,25 +173,28 @@ const _cart = {
     deleteCartItem: function (productId) {
         const _this = this;
 
-        _cart_service.deleteProduct(productId, function (res) {
+        _cart_service.deleteCartItem(JSON.stringify({
+            productIds: productId
+        }), function (res) {
             _this.loadCart();
         }, function (errorMsg) {
             _common_util.errorTips(errorMsg);
         });
     },
     // 删除选中的购物车商品
-    deleteSelectedCartItem: function () {
+    deleteCheckedCartItem: function () {
         const _this = this;
-        const selectedCartItemIds = [];
-        const $selectedCartItems = $(".cart-item input:checked");
+        const checkedCartItemIds = [];
+        const $checkedCartItems = $(".cart-item input:checked");
 
-        if ($selectedCartItems.length) {
-            $selectedCartItems.each(function (index, element) {
-                selectedCartItemIds.push($(element).parents(".cart-item").attr("data-value"));
+        if ($checkedCartItems.length) {
+            $checkedCartItems.each(function (index, element) {
+                checkedCartItemIds.push($(element).parents(".cart-item").data("value"));
             });
             
-            console.log(selectedCartItemIds);
-            _cart_service.deleteProduct(selectedCartItemIds.join(","), function (res) {
+            _cart_service.deleteCartItem(JSON.stringify({
+                productIds: checkedCartItemIds.join(",")
+            }), function (res) {
                 _this.loadCart();
             }, function (errorMsg) {
                 _common_util.errorTips(errorMsg);
@@ -196,11 +203,14 @@ const _cart = {
             _common_util.errorTips("请选择要删除的商品");
         }
     },
-    // 更新购物车商品数量
-    updateProductCount: function (productId, quantity) {
+    // 更新购物车信息
+    updateCart: function (productId, quantity) {
         const _this = this;
 
-        _cart_service.updateProductCount(productId, quantity, function (res) {
+        _cart_service.updateCartItem(JSON.stringify({
+            productId: productId,
+            quantity: quantity
+        }), function (res) {
             _this.loadCart();
         }, function (errorMsg) {
             _common_util.errorTips(errorMsg);
@@ -208,4 +218,6 @@ const _cart = {
     },
 };
 
-module.exports = _cart.init();
+$(function(){
+    _cart.init();
+});

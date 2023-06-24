@@ -99,7 +99,7 @@
     text-decoration: none;
 }
 
-.select-col {
+.check-col {
     width: 58px;
 }
 
@@ -111,7 +111,7 @@
     width: 200px;
 }
 
-.amount-col {
+.quantity-col {
     width: 108px;
 }
 
@@ -170,7 +170,8 @@
     color: #fff;
     background: #e54346;
     overflow: hidden;
-    cursor: pointer
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .cart-toolbar .count-wrapper, .price-wrapper {

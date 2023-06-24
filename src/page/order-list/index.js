@@ -73,4 +73,6 @@ const _order_list = {
     },
 };
 
-module.exports = _order_list.init();
+$(function(){
+    _order_list.init();
+});

@@ -45,7 +45,9 @@ const _checkout = {
     createOrder: function () {
         let addressId = $(".address-list-item.active").data("id");
 
-        _order_service.createOrder(addressId, function (res) {
+        _order_service.createOrder(JSON.stringify({
+            addressId: addressId
+        }), function (res) {
             window.location.href = "./order-info.html?orderNo=" + res.orderNo;
         }, function (errorMsg) {
             _common_util.errorTips(errorMsg);

@@ -29,20 +29,36 @@ const _address = {
     onLoad: function () {
         this.loadAddressList();
     },
+    reloadPage: function () {
+        window.location.reload();
+    },
     bindEvents: function () {
         const _this = this;
 
-        $(document).on("click", ".address-list-item", function () {
-            const addressId = $.trim($(this).attr("data-value"));
-            _this.loadAddressInfo(addressId);
+        // 地址框事件绑定：鼠标移入移出、单击、双击
+        $(document).on("mouseenter", ".address-list-item", function () {
+            $(this).find(".item-footer").show();
         });
-
+        $(document).on("mouseleave", ".address-list-item", function () {
+            $(this).find(".item-footer").hide();
+        });
+        $(document).on("click", ".address-list-item", function () {
+            const $this = $(this);
+            $this.addClass("active").siblings(".address-list-item").removeClass("active");
+        });
+        $(document).on("dblclick", ".address-list-item", function () {
+            _this.loadAddressInfo();
+        });
+        // 地址框事件绑定：添加、修改、删除
         $(document).on("click", ".address-add-item", function () {
             _this.loadAddressInfo();
         });
-
+        $(document).on("click", ".modify-btn", function () {
+            const addressId = $.trim($(this).parents(".address-list-item").data("id"));
+            _this.loadAddressInfo(addressId);
+        });
         $(document).on("click", ".delete-btn", function () {
-            const addressId = $.trim($(this).parent().attr("data-value"));
+            const addressId = $.trim($(this).parents(".address-list-item").data("id"));
             _this.deleteAddress(addressId);
             return false;
         });
@@ -58,12 +74,13 @@ const _address = {
         });
     },
     loadAddressList: function () {
-        let addressListInfoHTML = "";
+        let addressListHTML = "";
         const container = this.container;
 
+        const _this = this;
         _address_service.getAddressList(function (res) {
-            addressListInfoHTML = _common_util.renderHTML(addressListTemplate, {list: res});
-            container.html(addressListInfoHTML);
+            addressListHTML = _common_util.renderHTML(addressListTemplate, {list: res});
+            container.html(addressListHTML);
         }, function (errorMsg) {
             _common_util.errorTips(errorMsg);
         });
@@ -178,10 +195,11 @@ const _address = {
         let formData = this.getFormData("create");
         const validateResult = this.formDataValidate(formData);
 
+        const _this = this;
         if (validateResult.status) {
             _address_service.addAddress(JSON.stringify(formData), function () {
                 _common_util.successTips("新增地址成功！");
-                _common_util.toAddressList();
+                _this.reloadPage();
             }, function (errorMsg) {
                 _common_util.errorTips(errorMsg);
             });
@@ -194,10 +212,11 @@ const _address = {
         let formData = this.getFormData("update");
         const validateResult = this.formDataValidate(formData);
 
+        const _this = this;
         if (validateResult.status) {
             _address_service.updateAddress(JSON.stringify(formData), function (res) {
                 _common_util.successTips("修改地址成功！");
-                _common_util.toAddressList();
+                _this.reloadPage();
             }, function (errorMsg) {
                 _common_util.errorTips(errorMsg);
             });
@@ -212,12 +231,13 @@ const _address = {
             return;
         }
 
+        const _this = this;
         this.popModal("删除地址", "确认删除该地址？", function () {
             _address_service.deleteAddress(JSON.stringify({
                 addressId: addressId,
             }), function () {
                 _common_util.successTips("删除地址成功！");
-                _common_util.toAddressList();
+                _this.reloadPage();
             }, function (errorMsg) {
                 _common_util.errorTips(errorMsg);
             });

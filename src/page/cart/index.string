@@ -1,17 +1,17 @@
 <table class="cart">
     <colgroup>
-        <col class="select-col">
+        <col class="check-col">
         <col class="product-col">
         <col class="product-subtitle-col">
         <col class="price-col">
-        <col class="amount-col">
+        <col class="quantity-col">
         <col class="total-price-col">
         <col class="operate-col">
     </colgroup>
     <thead>
         <tr>
             <th class="cart-checkbox-wrapper">
-                <input type="checkbox" name="select-all" class="cart-checkbox" {{#allChecked}}checked{{/allChecked}}>
+                <input type="checkbox" name="check-all" class="cart-checkbox" {{#allChecked}}checked{{/allChecked}}>
                 全选
             </th>
             <th>商品</th>
@@ -27,17 +27,17 @@
         <tr class="separate-row"></tr>
         <tr class="item-body">
             <td class="item-checkbox-wrapper">
-                <input type="checkbox" name="select-item" class="item-checkbox" {{#checked}}checked{{/checked}}>
+                <input type="checkbox" name="check-item" class="item-checkbox" {{#checked}}checked{{/checked}}>
             </td>
             <td>
                 <div class="product-info">
                     <div class="product-img">
-                        <a href="" target="_blank">
+                        <a href="./product-detail.html?productId={{productId}}" target="_blank">
                             <img src="{{imageServer}}{{productMainImage}}" alt="{{productName}}">
                         </a>
                     </div>
                     <div class="product-name">
-                        <a href="" class="link" target="_blank">{{productName}}</a>
+                        <a href="./product-detail.html?productId={{productId}}" class="link" target="_blank">{{productName}}</a>
                     </div>
                 </div>
             </td>
@@ -74,11 +74,11 @@
 <div class="cart-toolbar">
     <div class="left">
         <div class="cart-checkbox-wrapper">
-            <input type="checkbox" name="select-all" class="cart-checkbox" {{#allChecked}}checked{{/allChecked}}>
+            <input type="checkbox" name="check-all" class="cart-checkbox" {{#allChecked}}checked{{/allChecked}}>
             全选
         </div>
-        <div class="delete-selected-wrapper">
-            <span class="delete-selected-btn link">删除选中的商品</span>
+        <div class="delete-checked-wrapper">
+            <span class="delete-checked-btn link">删除选中的商品</span>
         </div>
     </div>
     <div class="right">
@@ -88,6 +88,6 @@
         <div class="price-wrapper">
             总价：<span class="price-text">￥{{cartTotalPrice}}</span>
         </div>
-        <div class="cart-btn">去结算</div>
+        <a href="./checkout.html" class="cart-btn">去结算</a>
     </div>
 </div>

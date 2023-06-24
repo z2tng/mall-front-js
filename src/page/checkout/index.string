@@ -9,7 +9,7 @@
             <colgroup>
                 <col class="product-col">
                 <col class="price-col">
-                <col class="amount-col">
+                <col class="quantity-col">
                 <col class="total-price-col">
             </colgroup>
             <thead>

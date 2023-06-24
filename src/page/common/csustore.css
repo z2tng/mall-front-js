@@ -75,8 +75,8 @@ dd {
 .btn-plain {
     display: inline-block;
     padding: 0 20px;
-    height: 40px;
-    line-height: 40px;
+    height: 38px;
+    line-height: 38px;
     vertical-align: middle;
     border: 1px solid #215496;
     background: #fff;
@@ -92,6 +92,9 @@ dd {
     line-height: 25px;
     font-size: 12px;
     padding: 0 10px;
+}
+.btn-mini:hover{
+    color: #215496;
 }
 .loading{
     margin: 20px auto;
@@ -111,4 +114,15 @@ dd {
     font-size: 14px;
     margin-bottom: 10px;
     border-top: 2px solid #215496;
+}
+
+/* 错误提示 */
+.error-tip{
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #215496;
+    text-align: center;
+    background: #eee;
 }
