@@ -1,0 +1,58 @@
+<div class="address-wrapper">
+    <div class="subhead">收货地址</div>
+    <div class="address-list-wrapper"></div>
+</div>
+<div class="product-wrapper">
+    <div class="subhead">商品清单</div>
+    <div class="product-list-wrapper">
+        <table>
+            <colgroup>
+                <col class="product-col">
+                <col class="price-col">
+                <col class="amount-col">
+                <col class="total-price-col">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>商品</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#orderItemVOList}}
+                <tr class="item" data-id="{{productId}}">
+                    <td>
+                        <div class="product-info">
+                            <div class="product-img">
+                                <a href="" target="_blank">
+                                    <img src="{{imageServer}}{{productImage}}" alt="{{productName}}">
+                                </a>
+                            </div>
+                            <div class="product-name">
+                                <a href="" class="link" target="_blank">{{productName}}</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span>￥{{currentPrice}}</span>
+                    </td>
+                    <td>
+                        <span>{{quantity}}</span>
+                    </td>
+                    <td>
+                        <span style="font-weight: 700;">￥{{totalPrice}}</span>
+                    </td>
+                </tr>
+                {{/orderItemVOList}}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="checkout-foot-bar">
+    <div class="price-wrapper">
+        订单总价：<span class="price-text">￥{{paymentPrice}}</span>
+    </div>
+    <div class="checkout-btn">提交订单</div>
+</div>

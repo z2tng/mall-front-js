@@ -21,6 +21,35 @@ const _order_service = {
             error   : reject,
         });
     },
+    // 获取购物车中选中的商品
+    getSelectedCartItemList: function (resolve, reject) {
+        _common_util.request({
+            url     : _common_util.getServerURL('/order/cart_item_list'),
+            method  : 'GET',
+            success : resolve,
+            error   : reject,
+        });
+    },
+    // 创建订单
+    createOrder: function (addressId, resolve, reject) {
+        _common_util.request({
+            url     : _common_util.getServerURL('/order/create'),
+            method  : 'POST',
+            data    : JSON.stringify({addressId: addressId}),
+            success : resolve,
+            error   : reject,
+        });
+    },
+    // 取消订单
+    cancelOrder: function (requestParam, resolve, reject) {
+        _common_util.request({
+            url     : _common_util.getServerURL('/order/cancel'),
+            method  : 'POST',
+            data    : requestParam,
+            success : resolve,
+            error   : reject,
+        });
+    }
 };
 
 module.exports = _order_service;
