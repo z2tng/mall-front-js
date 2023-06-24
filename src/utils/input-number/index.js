@@ -45,16 +45,15 @@ InputNumber.prototype = {
     },
     bindEvent: function () {
         // 事件处理
-        // TODO: 不在document上绑定事件，而是在container上绑定事件
         const _this = this;
         const container = this.option.container;
 
-        container.on('blur', '.input-number-input', function () {
+        container.off('blur', '.input-number-input').on('blur', '.input-number-input', function () {
             const $this = $(this);
             typeof _this.option.onChange === 'function' ? _this.option.onChange($this.val()) : null;
         });
 
-        container.on('click', '.input-number-up', function () {
+        container.off('click', '.input-number-up').on('click', '.input-number-up', function () {
             const $this = $(this);
             if ($this.hasClass('disabled')) {
                 return;
@@ -65,7 +64,7 @@ InputNumber.prototype = {
             typeof _this.option.onChange === 'function' ? _this.option.onChange($input.val()) : null;
         });
 
-        container.on('click', '.input-number-down', function () {
+        container.off('click', '.input-number-down').on('click', '.input-number-down', function () {
             const $this = $(this);
             if ($this.hasClass('disabled')) {
                 return;
