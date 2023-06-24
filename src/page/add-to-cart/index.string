@@ -1,0 +1,34 @@
+{{#success}}
+<div class="success-wrapper">
+    <div class="success-header">
+        <i class="fa fa-check"></i>
+        <span class="title">商品已成功加入购物车！</span>
+    </div>
+    <div class="success-left">
+        <div class="product-info">
+            <div class="product-img">
+                <a href="" target="_blank">
+                    <img src="{{imageServer}}{{mainImage}}" alt="{{name}}">
+                </a>
+            </div>
+            <div class="product-desc">
+                <div class="product-name">
+                    <a href="" class="link" target="_blank">{{name}}</a>
+                </div>
+                <div class="quantity">
+                    <span>数量：{{addQuantity}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="success-right">
+        <div class="btn btn-plain btn-to-back">查看商品详情</div>
+        <div class="btn btn-to-cart">去购物车结算</div>
+    </div>
+</div>
+{{/success}}
+{{^success}}
+<div class="error-tip">
+    加入购物车失败，出现了一些问题：{{errorMsg}}，请稍后再试！
+</div>
+{{/success}}
