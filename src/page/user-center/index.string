@@ -46,7 +46,7 @@
                     <input type="text" class="input" id="answer" value="{{answer}}" placeholder="请输入电话号码" autocomplete="off">
                 </dd>
             </dl>
-            <a class="btn btn-radius" id="update">更新用户信息</a>
+            <a class="btn btn-radius" id="user-info-update">更新用户信息</a>
         </div>
         <div class="avatar-upload-container">
 

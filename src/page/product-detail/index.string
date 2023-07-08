@@ -1,7 +1,7 @@
 <div class="product-intro">
     <div class="preview-wrapper">
-        <div class="main-img">
-            <img src="{{imageServer}}{{mainImage}}" alt="">
+        <div class="main-img-warpper">
+            <img src="{{imageServer}}{{mainImage}}" alt="" class="main-img">
         </div>
         <div class="preview-list-wrapper">
             <span class="preview-btn forward">

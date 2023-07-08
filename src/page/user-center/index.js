@@ -77,7 +77,7 @@ const _user_center = {
         const _this = this;
         if (validateResult.status) {
             _user_service.updateUserInfo(JSON.stringify(formData), function (data, msg) {
-                console.log(msg);
+                _common_util.successTips("更新个人信息成功!");
                 _this.loadUserInfo();
             }, function (errorMsg) {
                 errorItem.show(errorMsg);

@@ -176,7 +176,7 @@ const _cart = {
         _cart_service.deleteCartItem(JSON.stringify({
             productIds: productId
         }), function (res) {
-            _this.loadCart();
+            window.location.reload();
         }, function (errorMsg) {
             _common_util.errorTips(errorMsg);
         });
@@ -195,7 +195,7 @@ const _cart = {
             _cart_service.deleteCartItem(JSON.stringify({
                 productIds: checkedCartItemIds.join(",")
             }), function (res) {
-                _this.loadCart();
+                window.location.reload();
             }, function (errorMsg) {
                 _common_util.errorTips(errorMsg);
             });

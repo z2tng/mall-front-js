@@ -1,0 +1,8 @@
+{{#list}}
+<li>
+    <div class="sidebar-item" id="{{name}}">
+        <i class="fa {{font}} sidebar-item-visual"></i>
+        <span class="sidebar-item-label">{{desc}}</span>
+    </div>
+</li>
+{{/list}}

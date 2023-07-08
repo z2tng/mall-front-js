@@ -8,10 +8,15 @@
     width: 425px;
 }
 
-.product-intro .preview-wrapper .main-img {
+.product-intro .preview-wrapper .main-img-wrapper {
     min-height: 300px;
     margin-bottom: 20px;
     border: 1px solid #eee;
+}
+
+.product-intro .preview-wrapper .main-img {
+    width: 100%;
+    
 }
 
 .product-intro .preview-list-wrapper {

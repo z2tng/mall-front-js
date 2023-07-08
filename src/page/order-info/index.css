@@ -182,13 +182,18 @@
     float: left;
 }
 
-.prodcut-list .product-info .product-img {
+.prodcut-list .product-info .product-img-wrapper {
     float: left;
     width: 60px;
     height: 60px;
     border: 1px solid #efefef;
     margin: 0 14px;
     position: relative;
+}
+
+.prodcut-list .product-info .product-img-wrapper .product-img {
+    width: 100%;
+    max-height: 60px;
 }
 
 .prodcut-list .product-info .product-name {

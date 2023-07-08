@@ -10,9 +10,11 @@
     </colgroup>
     <thead>
         <tr>
-            <th class="cart-checkbox-wrapper">
-                <input type="checkbox" name="check-all" class="cart-checkbox" {{#allChecked}}checked{{/allChecked}}>
-                全选
+            <th>
+                <div class="cart-checkbox-wrapper">
+                    <input type="checkbox" name="check-all" class="cart-checkbox" {{#allChecked}}checked{{/allChecked}}>
+                    全选
+                </div>
             </th>
             <th>商品</th>
             <th>&nbsp;</th>
@@ -26,14 +28,16 @@
     <tbody class="cart-item" data-value="{{productId}}">
         <tr class="separate-row"></tr>
         <tr class="item-body">
-            <td class="item-checkbox-wrapper">
-                <input type="checkbox" name="check-item" class="item-checkbox" {{#checked}}checked{{/checked}}>
+            <td>
+                <div class="item-checkbox-wrapper">
+                    <input type="checkbox" name="check-item" class="item-checkbox" {{#checked}}checked{{/checked}}>
+                </div>
             </td>
             <td>
                 <div class="product-info">
-                    <div class="product-img">
+                    <div class="product-img-wrapper">
                         <a href="./product-detail.html?productId={{productId}}" target="_blank">
-                            <img src="{{imageServer}}{{productMainImage}}" alt="{{productName}}">
+                            <img src="{{productImageServer}}{{productMainImage}}" alt="{{productName}}" class="product-img">
                         </a>
                     </div>
                     <div class="product-name">
@@ -47,14 +51,16 @@
             <td>
                 <span>{{productPrice}}</span>
             </td>
-            <td class="cart-item-quantity">
-                <div class="quantity"></div>
-                {{#checkStock}}
-                <span>有货</span>
-                {{/checkStock}}
-                {{^checkStock}}
-                <span>有货，但库存不充足足</span>
-                {{/checkStock}}
+            <td>
+                <div class="cart-item-quantity">
+                    <div class="quantity"></div>
+                    {{#checkStock}}
+                    <span>有货</span>
+                    {{/checkStock}}
+                    {{^checkStock}}
+                    <span>有货，但库存不充足足</span>
+                    {{/checkStock}}
+                </div>
             </td>
             <td>
                 <span>{{productTotalPrice}}</span>

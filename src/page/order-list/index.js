@@ -13,7 +13,7 @@ const Pagination = require("utils/pagination/index.js");
 const _order_list = {
     requestParam: {
         pageNum: 1,
-        pageSize: 10,
+        pageSize: 2,
     },
     init: function () {
         this.onLoad();
@@ -37,6 +37,7 @@ const _order_list = {
         const _this = this;
 
         _order_service.getOrderList(requestParam, function (res) {
+            console.log(res);
             let orderVOList = res.records;
             orderVOList.forEach(function (orderVO) {
                 orderVO.statusDesc = _common_util.getStatusDesc(orderVO.status);
@@ -58,9 +59,8 @@ const _order_list = {
             current         : current,
             pages           : pages,
             onClickItem     : function (current) {
-                console.log(current);
                 _this.requestParam.pageNum = current;
-                _this.loadProductList();
+                _this.loadOrderList();
             },
         });
     },

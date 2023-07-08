@@ -6,9 +6,9 @@
     </div>
     <div class="success-left">
         <div class="product-info">
-            <div class="product-img">
+            <div class="product-img-wrapper">
                 <a href="" target="_blank">
-                    <img src="{{imageServer}}{{mainImage}}" alt="{{name}}">
+                    <img src="{{imageServer}}{{mainImage}}" alt="{{name}}" class="product-img">
                 </a>
             </div>
             <div class="product-desc">

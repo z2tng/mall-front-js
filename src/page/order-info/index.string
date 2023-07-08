@@ -97,13 +97,13 @@
             <tr data-value="{{prouctId}}">
                 <td>
                     <div class="product-info">
-                        <div class="product-img">
+                        <div class="product-img-wrapper">
                             <a href="" target="_blank">
-                                <img src="{{imageServer}}{{productImage}}" alt="{{productName}}">
+                                <img src="{{imageServer}}{{productImage}}" alt="{{productName}}" class="product-img">
                             </a>
                         </div>
                         <div class="product-name">
-                            <a href="" class="link" target="_blank">{{productName}}</a>
+                            <a href="./product-detail.html?productId={{productId}}" class="link" target="_blank">{{productName}}</a>
                         </div>
                     </div>
                 </td>
@@ -120,7 +120,7 @@
                     <span>{{totalPrice}}</span>
                 </td>
                 <td>
-                    <a class="link">再次购买</a>
+                    <a href="./product-detail.html?productId={{productId}}" class="link">再次购买</a>
                 </td>
             </tr>
             {{/orderItemVOList}}

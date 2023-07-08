@@ -25,9 +25,9 @@
                 <tr class="item" data-id="{{productId}}">
                     <td>
                         <div class="product-info">
-                            <div class="product-img">
+                            <div class="product-img-wrapper">
                                 <a href="" target="_blank">
-                                    <img src="{{imageServer}}{{productImage}}" alt="{{productName}}">
+                                    <img src="{{imageServer}}{{productImage}}" alt="{{productName}}" class="product-img">
                                 </a>
                             </div>
                             <div class="product-name">

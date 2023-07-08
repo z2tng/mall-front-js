@@ -36,6 +36,7 @@ const _product_list = {
 
         const _this = this;
         _product_service.getProductList(requestParam, function (res) {
+            console.log(res);
             productListHTML = _common_util.renderHTML(productListHTMLTemplate, {list: res.records});
             $productListContent.html(productListHTML);
             _this.loadPagination(res.current, res.pages);

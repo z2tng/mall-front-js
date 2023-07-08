@@ -53,6 +53,7 @@ const _order_info = {
 
         const _this = this;
         _order_service.getOrderDetail(requestParam, function (res) {
+            console.log(res);
             let status = res.status;
             let order = $.extend({}, res, {
                 statusDesc      : _common_util.getStatusDesc(status),
