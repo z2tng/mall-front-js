@@ -17,20 +17,14 @@ const _order_pay = {
         return this;
     },
     bindEvents: function () {
-        const _this = this;
 
-        // 支付按钮点击事件
-        // 1. 支付宝支付
-        $(document).on("click", "alipay", function () {
-            
-        });
-        // 2. 微信支付
-        $(document).on("click", "wepay", function () {
-
-        });
     },
     onLoad: function () {
         this.loadOrderPay();
+        console.log("开始轮询");
+        setInterval(() => {
+            this.getAliPayStatus();
+        }, 5*1000);
     },
     loadOrderPay: function () {
         let requestParam = this.requestParam;
@@ -38,15 +32,23 @@ const _order_pay = {
         const $orderPayContent = $(".order-pay-content");
 
         const _this = this;
-        _order_service.getOrderDetail(requestParam, function (res) {
-            res.isOrderUnpaid = res.status === 2;
-            console.log(res);
+        _order_service.getAliPayQRCode(requestParam, function (res) {
             orderPayHTML = _common_util.renderHTML(orderPayTemplate, res);
             $orderPayContent.html(orderPayHTML);
         }, function (errorMsg) {
             _common_util.errorTips(errorMsg);
         });
     },
+    getAliPayStatus: function () {
+        let requestParam = this.requestParam;
+        const _this = this;
+        _order_service.getAliPayStatus(requestParam, function (res) {
+            console.log("success: " + res);
+            window.location.href = "./order-info.html?orderNo=" + requestParam.orderNo;
+        }, function (errorMsg) {
+            console.log("err: " + errorMsg);
+        });
+    }
 };
 
 $(function () {

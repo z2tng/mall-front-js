@@ -62,7 +62,7 @@ const _common_util = {
     // 跳转到登录界面
     toLogin: function (isRedirect) {
         // 默认跳转到登录界面且带上当前页面的URL
-        isRedirect
+        isRedirect === false
             ? window.location.href = "./user-login.html"
             : window.location.href = "./user-login.html?redirect=" + encodeURI(window.location.href);
     },

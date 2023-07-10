@@ -49,6 +49,26 @@ const _order_service = {
             success : resolve,
             error   : reject,
         });
+    },
+    // 获取支付宝二维码
+    getAliPayQRCode: function (requestParam, resolve, reject) {
+        _common_util.request({
+            url     : _common_util.getServerURL('/alipay/get_qrcode'),
+            method  : 'GET',
+            data    : requestParam,
+            success : resolve,
+            error   : reject,
+        });
+    },
+    // 获取支付宝支付状态
+    getAliPayStatus: function (requestParam, resolve, reject) {
+        _common_util.request({
+            url     : _common_util.getServerURL('/alipay/get_status'),
+            method  : 'GET',
+            data    : requestParam,
+            success : resolve,
+            error   : reject,
+        });
     }
 };
 
