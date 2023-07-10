@@ -15,11 +15,13 @@
                     <li class="active">
                         <img src="{{imageServer}}{{mainImage}}" alt="">
                     </li>
+                    {{#hasSubImages}}
                     {{#subImages}}
                     <li>
                         <img src="{{imageServer}}{{.}}" alt="">
                     </li>
                     {{/subImages}}
+                    {{/hasSubImages}}
                 </ul>
             </div>
         </div>

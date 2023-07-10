@@ -73,7 +73,8 @@ const _product_detail = {
         const _this = this;
         _product_service.getProductDetail(requestParam, function (res) {
             let subImages = res.subImages.split(',');
-            res.subImages = subImages;
+            res.subImages = subImages.length > 0 ? subImages : null;
+            // res.subImages = subImages;
             res.imgListWidth = _this.getPreviewListWidth(subImages.length + 1);
             res.disabled = requestParam.quantity > res.stock ? 'btn-disabled' : '';
 
